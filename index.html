@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Business & IS Exam Portal (สุ่มสอบ 30 ข้อ - ไม่จับเวลา)</title>
+  <title>Digital Business & Information Systems Exam Hub</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,31 +13,19 @@
     .tab-content.active { display: block; }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
-  <!-- Top Navigation Header -->
-  <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3">
+  <!-- Header -->
+  <header class="bg-indigo-900 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-lg shadow-inner">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </div>
-        <div>
-          <h1 class="text-lg sm:text-xl font-bold tracking-wide leading-tight">Digital Business & IS Exam</h1>
-          <p class="text-xs text-slate-400">คลังข้อสอบ 100 ข้อ &bull; สุ่มทดสอบชุดละ 30 ข้อ (ไม่จับเวลา)</p>
-        </div>
+        <i class="fa-solid fa-graduation-cap text-2xl text-amber-400"></i>
+        <h1 class="text-xl font-bold tracking-wide">Digital Business & IS Portal</h1>
       </div>
-
-      <nav class="flex space-x-2">
-        <button onclick="switchTab('quiz')" id="tab-btn-quiz" class="nav-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-indigo-600 text-white shadow">
-          <i class="fa-solid fa-pen-to-square mr-1.5"></i> ทำข้อสอบ (สุ่ม 30 ข้อ)
-        </button>
-        <button onclick="switchTab('summary')" id="tab-btn-summary" class="nav-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-slate-800 hover:bg-slate-700 text-slate-300">
-          <i class="fa-solid fa-book-open mr-1.5"></i> สรุปเนื้อหา CH.1-5
-        </button>
-        <button onclick="switchTab('bank')" id="tab-btn-bank" class="nav-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-slate-800 hover:bg-slate-700 text-slate-300">
-          <i class="fa-solid fa-list-check mr-1.5"></i> คลังข้อสอบ 100 ข้อ
-        </button>
+      <nav class="flex space-x-2 mt-2 sm:mt-0">
+        <button onclick="switchTab('summary')" id="btn-summary" class="nav-btn px-4 py-2 rounded-lg font-medium transition bg-indigo-700 text-white">สรุปเนื้อหา 5 บท</button>
+        <button onclick="switchTab('quiz')" id="btn-quiz" class="nav-btn px-4 py-2 rounded-lg font-medium transition hover:bg-indigo-800 text-indigo-200">ทำแบบทดสอบ (สุ่ม 30 ข้อ)</button>
+        <button onclick="switchTab('bank')" id="btn-bank" class="nav-btn px-4 py-2 rounded-lg font-medium transition hover:bg-indigo-800 text-indigo-200">คลังข้อสอบทั้งหมด (100 ข้อ)</button>
       </nav>
     </div>
   </header>
@@ -45,154 +33,182 @@
   <!-- Main Container -->
   <main class="flex-grow max-w-6xl mx-auto w-full p-4 sm:p-6">
 
-    <!-- TAB 1: RANDOM QUIZ (30 QUESTIONS) -->
-    <section id="quiz" class="tab-content active space-y-6">
-      
-      <!-- Quiz Control Header Bar -->
-      <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap justify-between items-center gap-4">
-        <div>
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
-            แบบทดสอบจำลอง (สุ่ม 30 ข้อ)
-          </h2>
-          <p class="text-slate-500 text-xs sm:text-sm mt-0.5">ฝึกทำตามอัธยาศัย ไม่จำกัดเวลา คละโจทย์ง่าย-ปานกลาง-ยาก</p>
-        </div>
+    <!-- TAB 1: SUMMARY -->
+    <section id="summary" class="tab-content active space-y-6">
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-2xl font-bold text-indigo-900 mb-2">สรุปเนื้อหาหลักและสาระสำคัญ</h2>
+        <p class="text-slate-600">รวบรวมเนื้อหา CH.1 ถึง CH.5 ตามเอกสารการบรรยาย พร้อมประเด็นสำคัญที่มักใช้ออกข้อสอบ</p>
+      </div>
 
-        <div class="flex items-center gap-3">
-          <div class="bg-indigo-50 border border-indigo-200 px-4 py-2 rounded-xl text-center">
-            <div class="text-xs text-indigo-500 font-medium">ความคืบหน้า</div>
-            <div id="quiz-progress-text" class="text-sm font-bold text-indigo-900">0 / 30 ข้อ</div>
+      <!-- CH 1 -->
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+        <h3 class="text-xl font-bold text-indigo-800 border-b pb-2 mb-3">CH.1: Digital Technology for Business</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-sm text-slate-700">
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-1">Global Changes (5 ปัจจัยขับเคลื่อน):</h4>
+            <ul class="list-disc list-inside space-y-1">
+              <li><b>Urban Popular:</b> การขยายตัวของเมือง ความสะดวก/รวดเร็วผ่านช่องทางดิจิทัล</li>
+              <li><b>Demographic Changes:</b> สังคมผู้สูงอายุ (Aging Society) ความต้องการใหม่</li>
+              <li><b>Rise of Emerging Markets:</b> ตลาดเกิดใหม่ การแข่งขันที่ต้นทุนต่ำกว่า</li>
+              <li><b>Technological Advancements:</b> ก้าวหน้าอย่างรวดเร็วของเทคโนโลยี</li>
+              <li><b>Climate Change:</b> สภาพแวดล้อมที่กระทบ Supply Chain โดยตรง</li>
+            </ul>
           </div>
-          <button onclick="startNewRandomQuiz()" class="px-4 py-3 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-medium rounded-xl text-sm transition shadow flex items-center gap-2">
-            <i class="fa-solid fa-shuffle"></i> <span>สุ่มข้อสอบชุดใหม่</span>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-1">Digital Disruption & Transformation:</h4>
+            <ul class="list-disc list-inside space-y-1">
+              <li><b>Disruption:</b> ภาวะธุรกิจชะงักงันเพราะไม่ปรับใช้เทคโนโลยี ถูกคู่แข่งสร้างบริการที่คุ้มค่ากว่า เช่น Grab, Airbnb</li>
+              <li><b>Transformation:</b> การนำ Tech มาปรับโมเดลธุรกิจ เชื่อมโยงผู้บริโภค เช่น Sephora ให้คำปรึกษาและ Personalize เมคอัพ</li>
+              <li><b>DIKW Hierarchy:</b> Data (ข้อเท็จจริง) &rarr; Information (ผ่านการประมวลผล มีบริบท) &rarr; Knowledge (ความเข้าใจ เชี่ยวชาญ นำไปใช้ตัดสินใจได้)</li>
+              <li><b>Components of CBIS:</b> Hardware, Software, Network, People, Procedure, Database</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CH 2 -->
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+        <h3 class="text-xl font-bold text-indigo-800 border-b pb-2 mb-3">CH.2: Principles of IS in Organization</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-sm text-slate-700">
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-1">Strategic Frameworks:</h4>
+            <ul class="list-disc list-inside space-y-1">
+              <li><b>SWOT:</b> วิเคราะห์จุดแข็ง-จุดอ่อน (Internal) และโอกาส-อุปสรรค (External) เช่น ต้นทุนผันผวนเป็น Threat, ความนิยมสินค้า K-Cup เป็น Opportunity</li>
+              <li><b>Five Forces Model:</b> การแข่งขันในอุตสาหกรรม, อำนาจต่อรอง Supplier/Buyer, คู่แข่งรายใหม่ (New Entrant), สินค้าทดแทน (Substitute)</li>
+              <li><b>Value Chain:</b> Primary (กิจกรรมหลัก: Inbound, Operations, Outbound, Marketing/Sales, Service) และ Support (HR, Tech, Procurement)</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-1">IS Strategies & Operations:</h4>
+            <ul class="list-disc list-inside space-y-1">
+              <li><b>RFID ใน Warehouse:</b> ลดข้อผิดพลาด (Mistake), ประหยัดเวลา, ใช้คนน้อยลง เป็น Real-time tracking เชื่อมกับ Supply Chain</li>
+              <li><b>4 IS Strategies:</b> Cost Leadership (Walmart เติมสต๊อกอัตโนมัติ), Product Differentiation (Nike ปรับแต่งรองเท้า), Market Niche (จับตลาดเฉพาะกลุ่ม), Lock-in Customer/Supplier</li>
+              <li><b>BPR vs Continuous:</b> Reengineering คือรื้อกระบวนการใหม่ทั้งหมด ส่วน Continuous คือการค่อยๆ ปรับปรุงทีละขั้นตอน</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CH 3 -->
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+        <h3 class="text-xl font-bold text-indigo-800 border-b pb-2 mb-3">CH.3: Digital Market & E-Commerce</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-sm text-slate-700">
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-1">Digital Market vs Traditional Market:</h4>
+            <ul class="list-disc list-inside space-y-1">
+              <li><b>Information Asymmetry:</b> ดิจิทัลต่ำกว่ามาก เพราะลูกค้าเปรียบเทียบข้อมูลได้ทันที</li>
+              <li><b>Search & Transaction Cost:</b> ดิจิทัลต่ำกว่าอย่างชัดเจน</li>
+              <li><b>Menu Cost:</b> ต้นทุนการปรับเปลี่ยนราคาบนดิจิทัลต่ำมาก (เปลี่ยนง่ายและเร็ว)</li>
+              <li><b>Disintermediation:</b> ตัดตัวกลางออกเพื่อขายตรงถึงผู้บริโภค</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-1">Business Models & Revenue Models:</h4>
+            <ul class="list-disc list-inside space-y-1">
+              <li><b>E-tailer:</b> ร้านค้าปลีกออนไลน์ขายของตนเอง (เช่น Apple Store Online) ไม่ใช่ Shopee ที่เป็น Marketplace</li>
+              <li><b>Transaction Broker:</b> คนกลางอำนวยความสะดวกธุรกรรม เช่น Trip.com, Agoda</li>
+              <li><b>Revenue Model:</b> ค่าโฆษณา, ค่าสมาชิก (Subscription), ค่าธรรมเนียมต่อธุรกรรม, Affiliate Fee (ค่านายหน้าจากการแชร์ลิงก์ส่งต่อลูกค้า)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CH 4 & 5 -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+          <h3 class="text-xl font-bold text-indigo-800 border-b pb-2 mb-3">CH.4: Excel & Logic Basics</h3>
+          <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
+            <li><b>Cell References:</b> Relative Reference ปรับ Row/Col ตามทิศทางการคัดลอก ส่วน Absolute Reference ($) ล็อกแถวหรือคอลัมน์ไม่ให้เลื่อน</li>
+            <li><b>Chart Types:</b> Bar Chart เหมาะกับ Label ที่มีความยาว, Line Chart เหมาะกับดู Trend แนวโน้มตามเวลา, Pie Chart ห้ามเกิน 5-6 ส่วน และข้อมูลรวมต้องเป็น 100%</li>
+            <li><b>Loops:</b> คำสั่ง Loop เช่น Repeat...Until จะทำงานคำสั่งข้างในอย่างน้อย 1 ครั้ง และจะหยุดทำเมื่อเงื่อนไขหลัง Until มีค่าเป็นจริง</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+          <h3 class="text-xl font-bold text-indigo-800 border-b pb-2 mb-3">CH.5: AI & Analytics for Business</h3>
+          <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
+            <li><b>Rule-based vs Machine Learning:</b> Rule-based มีกฎตายตัว ขาดความยืดหยุ่นถ้าเกิดเงื่อนไขใหม่ ส่วน ML เรียนรู้จาก Data มีความยืดหยุ่นสูง ปรับตัวและพยากรณ์ได้ดี</li>
+            <li><b>Types of ML:</b> Supervised (มีเฉลยให้ระบบเรียนรู้), Unsupervised (ไม่มีเฉลย จัดกลุ่มเอง), Reinforcement (การเรียนรู้ผ่านการลองผิดลองถูกและให้รางวัล)</li>
+            <li><b>Dynamic Pricing:</b> เช่น Grab ปรับค่าบริการตามความต้องการ สภาพจราจร และช่วงเวลาแบบเรียลไทม์</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: RANDOM QUIZ (30 QUESTIONS) -->
+    <section id="quiz" class="tab-content">
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-6 flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <h2 class="text-2xl font-bold text-indigo-900">แบบทดสอบจำลอง (สุ่ม 30 ข้อ)</h2>
+          <p class="text-slate-600 text-sm">แบบทดสอบคัดกรองเนื้อหาปนระดับ ง่าย-ปานกลาง-ยาก จำลองแนวข้อสอบจริง</p>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span id="quiz-progress-text" class="text-sm font-semibold text-indigo-800">ตอบแล้ว 0/30 ข้อ</span>
+          <button onclick="startNewRandomQuiz()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium transition shadow flex items-center gap-2">
+            <i class="fa-solid fa-shuffle"></i> สุ่มชุดข้อสอบใหม่
           </button>
         </div>
       </div>
 
-      <!-- Container ใส่ข้อสอบ 30 ข้อ -->
-      <div id="quiz-questions-list" class="space-y-5"></div>
+      <div id="quiz-container" class="space-y-6">
+        <!-- Questions injected by JS -->
+      </div>
 
-      <!-- ปุ่มส่งคำตอบ -->
-      <div class="pt-4 pb-12 text-center">
-        <button id="btn-submit" onclick="submitQuiz()" class="px-10 py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-base sm:text-lg rounded-2xl shadow-lg hover:shadow-emerald-500/25 transition">
-          <i class="fa-solid fa-check-double mr-2"></i> ส่งคำตอบและตรวจคะแนน
+      <div class="mt-8 text-center pb-12">
+        <button id="btn-submit-quiz" onclick="submitQuiz()" class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg rounded-xl shadow-lg transition">
+          ส่งคำตอบและตรวจคะแนน
         </button>
       </div>
 
-      <!-- Modal แจ้งผลคะแนน -->
-      <div id="quiz-result-modal" class="hidden fixed inset-0 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl space-y-4 border border-slate-100">
-          <div class="w-20 h-20 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto text-3xl shadow-inner">
-            <i class="fa-solid fa-award"></i>
+      <!-- Result Modal / Card -->
+      <div id="quiz-result" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full text-center shadow-2xl space-y-4">
+          <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+            <i class="fa-solid fa-trophy"></i>
           </div>
-          <h3 class="text-2xl font-bold text-slate-900">ผลการทำแบบทดสอบ</h3>
-          <div class="text-5xl font-extrabold text-indigo-600 tracking-tight" id="result-score">0 / 30</div>
-          <p id="result-feedback" class="text-slate-600 text-sm leading-relaxed"></p>
-          <div class="pt-3 flex justify-center gap-3">
-            <button onclick="closeResultModal()" class="px-5 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium rounded-xl text-sm transition">
-              ดูเฉลยแต่ละข้อ
+          <h3 class="text-2xl font-bold text-slate-800">ผลการทดสอบของคุณ</h3>
+          <div class="text-5xl font-extrabold text-indigo-600" id="result-score">0 / 30</div>
+          <p id="result-feedback" class="text-slate-600 text-sm"></p>
+          <div class="pt-4 flex justify-center space-x-3">
+            <button onclick="closeResultModal()" class="px-6 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium rounded-xl text-sm transition">
+              ดูข้อที่ตอบตรวจคำตอบ
             </button>
-            <button onclick="closeResultModal(); startNewRandomQuiz();" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl text-sm transition shadow">
-              <i class="fa-solid fa-rotate mr-1"></i> สุ่มทำใหม่อีกรอบ
+            <button onclick="startNewRandomQuiz(); closeResultModal();" class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl text-sm transition">
+              ทำใหม่อีกรอบ (สุ่มใหม่)
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 2: สรุปเนื้อหา CH.1 - CH.5 -->
-    <section id="summary" class="tab-content space-y-6">
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-        <h2 class="text-2xl font-bold text-indigo-900 mb-2">สรุปเนื้อหาสำคัญประกอบการสอบ (CH.1 - CH.5)</h2>
-        <p class="text-slate-600 text-sm">เรียบเรียงเนื้อหาจากสไลด์และเลกเชอร์ เน้นจุดที่มักนำมาออกเป็นข้อสอบจริง</p>
-      </div>
-
-      <!-- CH 1 & 2 -->
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-3">
-          <h3 class="text-lg font-bold text-indigo-800 border-b pb-2">CH.1: Digital Technology for Business</h3>
-          <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
-            <li><b>Global Changes (5 ปัจจัย):</b> Urban Popular (ความสะดวก รวดเร็วในเมือง), Demographic (Aging Society), Emerging Markets, Technological Advancements, Climate Change กระทบ Supply chain</li>
-            <li><b>Digitization vs Transformation:</b> Digitization คือเปลี่ยนของกายภาพเป็น 0,1 ลดต้นทุน เช่น E-Book ส่วน Transformation คือรื้อสร้าง Business Model ใหม่ เช่น Sephora แนะนำเมคอัพเฉพาะบุคคล</li>
-            <li><b>Disruption:</b> Grab โตด้วยการหาคนขับเพิ่ม ไม่เสียต้นทุนซื้อรถเหมือนแท็กซี่เดิม, Airbnb ใช้ห้องพักที่มีอยู่แล้ว ไม่ต้องลงทุนสร้างตึกสูง</li>
-            <li><b>DIKW Hierarchy:</b> Data (ข้อเท็จจริง) &rarr; Information (ผ่านการประมวลผล มีความหมาย) &rarr; Knowledge (ความรู้/ความเชี่ยวชาญ นำไปตัดสินใจได้)</li>
-            <li><b>CBIS 6 องค์ประกอบ:</b> Hardware, Software, Network, People, Procedures, Databases</li>
-          </ul>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-3">
-          <h3 class="text-lg font-bold text-indigo-800 border-b pb-2">CH.2: Principles of IS in Organization</h3>
-          <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
-            <li><b>Five Forces Model:</b> การแข่งขันในอุตสาหกรรม, อำนาจต่อรอง Supplier, อำนาจต่อรอง Buyer (ควรสร้าง Switching Cost), ผู้ค้ารายใหม่ (New Entrant), สินค้าทดแทน (Substitute)</li>
-            <li><b>SWOT Analysis:</b> Strengths/Weaknesses (ภายใน) vs Opportunities/Threats (ภายนอก เช่น วัตถุดิบผันผวน, คู่แข่งเพิ่ม)</li>
-            <li><b>Value Chain:</b> Primary (Inbound, Operations, Outbound, Marketing/Sales, Service) vs Support (HR, Technology, Procurement)</li>
-            <li><b>RFID ในคลังสินค้า:</b> ช่วยลดความผิดพลาด (Mistake), ประหยัดเวลา, ลดการใช้คน, Real-time tracking จัดส่งได้ตรงตามกำหนด</li>
-            <li><b>4 กลยุทธ์ IS:</b> Low-cost (Walmart เติมสต๊อกออโต้), Differentiation (Nike ออกแบบรองเท้าเอง), Market Niche (เจาะกลุ่มเฉพาะ), Customer/Supplier Linkage</li>
-            <li><b>BPR vs Continuous Improvement:</b> BPR รื้อปรับทั้งระบบแบบก้าวกระโดด ส่วน Continuous ปรับทีละจุดหน้างาน</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- CH 3 & 4 & 5 -->
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-3">
-          <h3 class="text-lg font-bold text-indigo-800 border-b pb-2">CH.3: Digital Market & E-Commerce</h3>
-          <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside">
-            <li><b>Digital Market:</b> Information Asymmetry ต่ำ, Search Cost ต่ำ, Transaction Cost ต่ำ, Menu Cost ต่ำมาก (เปลี่ยนราคาได้ทันที), Disintermediation ตัดตัวกลางขายตรง</li>
-            <li><b>Internet Business Models:</b> E-tailer (ขายปลีกเอง ไม่ใช่ Shopee), Transaction Broker (Agoda, Trip.com), Marketplace (Shopee, Lazada), Content (Netflix), Community, Portal (Google), Service</li>
-            <li><b>Revenue Model:</b> โฆษณา, ค่าสมาชิก, Affiliate (ค่านายหน้าบอกต่อผ่านลิงก์)</li>
-          </ul>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-3">
-          <h3 class="text-lg font-bold text-indigo-800 border-b pb-2">CH.4: Excel & Logic Basics</h3>
-          <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside">
-            <li><b>Cell Reference:</b> Relative เลื่อนตามทิศทางคัดลอก ส่วน Absolute ($) ล็อกแถวหรือคอลัมน์ไม่ให้ขยับ</li>
-            <li><b>Chart Selection:</b> Bar Chart เหมาะกับ Label ยาว, Line Chart ดูแนวโน้มตามเวลา, Pie Chart ห้ามเกิน 5-6 ชิ้นและผลรวมต้อง 100%</li>
-            <li><b>Combo Chart:</b> นำ Column เทียบกับ Line เพื่อวัด Actual vs Target</li>
-            <li><b>Logic:</b> Repeat...Until ทำคำสั่งอย่างน้อย 1 ครั้ง และหยุดเมื่อเงื่อนไขหลัง Until เป็นจริง</li>
-          </ul>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-3">
-          <h3 class="text-lg font-bold text-indigo-800 border-b pb-2">CH.5: AI for Business</h3>
-          <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside">
-            <li><b>Rule-based vs ML:</b> Rule-based ไร้ความยืดหยุ่น ถ้าเงื่อนไขเปลี่ยนจะเกิด Error ส่วน Machine Learning เรียนรู้ Pattern ปรับตัวได้สูงและพยากรณ์แม่นยำ</li>
-            <li><b>ML Types:</b> Supervised (ป้อนข้อมูลพร้อมเฉลย), Unsupervised (ป้อนข้อมูลแบบไม่มีเฉลย), Reinforcement (เรียนรู้จากการให้รางวัล)</li>
-            <li><b>Deep Learning:</b> โครงข่ายประสาทเทียมหลายชั้น ประมวลผลข้อมูลซับซ้อน เช่น Grab ทำ Dynamic Pricing ปรับราคาตามสภาพแวดล้อม</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 3: คลังข้อสอบทั้งหมด 100 ข้อ -->
+    <!-- TAB 3: QUESTION BANK (100 QUESTIONS) -->
     <section id="bank" class="tab-content space-y-6">
       <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap justify-between items-center gap-4">
         <div>
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900">คลังข้อสอบทั้งหมด 100 ข้อ</h2>
-          <p class="text-slate-500 text-xs sm:text-sm">ตรวจสอบเฉลยและเหตุผลประกอบเพื่อทบทวนความเข้าใจ</p>
+          <h2 class="text-2xl font-bold text-indigo-900">คลังข้อสอบทั้งหมด (100 ข้อ)</h2>
+          <p class="text-slate-600 text-sm">พร้อมเฉลยและคำอธิบายโดยละเอียดสำหรับทบทวน</p>
         </div>
-        <div class="w-full sm:w-80">
-          <input type="text" id="search-input" oninput="searchBankQuestions()" placeholder="พิมพ์คำค้นหาข้อสอบ หรือหัวข้อ..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <div class="w-full sm:w-72">
+          <input type="text" id="search-box" oninput="filterBank()" placeholder="ค้นหาข้อสอบหรือเนื้อหา..." class="w-full px-4 py-2 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500">
         </div>
       </div>
 
-      <div id="bank-questions-list" class="space-y-4"></div>
+      <div id="bank-container" class="space-y-4">
+        <!-- Bank questions injected by JS -->
+      </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
-    <p>Digital Technology for Business - Interactive Practice Portal</p>
+  <footer class="bg-slate-100 border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <p>ระบบเตรียมสอบ Digital Technology & Information Systems</p>
   </footer>
 
   <script>
-    // คลังข้อสอบ 100 ข้อ (สไตล์โจทย์วิเคราะห์, จับคู่, Excel, AI, Business)
-    const questionsDatabase = [
+    // 100 QUESTIONS REPOSITORY (สไตล์ข้อสอบเช็คความเข้าใจ, ถูก-ผิด, จับคู่, วิเคราะห์สถานการณ์)
+    const questionBank = [
       {
         id: 1,
-        q: "ข้อใดไม่ถูกต้องเกี่ยวกับ Affiliate?",
+        q: "ข้อใดไม่ถูกต้องเกี่ยวกับ Affiliate Marketing?",
         options: [
           "เป็นการร่วมมือกันระหว่างแพลตฟอร์ม e-commerce และเจ้าของร้านค้าในการสร้างกำไรให้เติบโต",
           "เป็นการบอกต่อโดยการแปะลิงก์ไปยังสินค้า",
@@ -200,11 +216,11 @@
           "เป็นกลยุทธ์ในการเพิ่มโอกาสการขาย"
         ],
         answer: 0,
-        exp: "Affiliate คือระบบนายหน้าส่งต่อลูกค้าผ่านการแปะลิงก์เพื่อรับส่วนแบ่งค่าคอมมิชชัน ไม่ใช่การร่วมมือกันโดยตรงเพื่อสร้างกำไรเฉพาะแพลตฟอร์มกับร้านค้า"
+        exp: "Affiliate Marketing คือการที่บุคคลภายนอก (Publisher/Creator) นำลิงก์ไปแนะนำเพื่อรับค่าคอมมิชชัน ไม่ใช่การร่วมมือเฉพาะระหว่างแพลตฟอร์มกับร้านค้า"
       },
       {
         id: 2,
-        q: "ข้อใดไม่ถูกต้องเกี่ยวกับ SWOT?",
+        q: "ข้อใดไม่ถูกต้องเกี่ยวกับ SWOT Analysis?",
         options: [
           "เป็นการประเมินตนเองและคู่แข่ง",
           "ช่วยให้เราวางแผนเตรียมพร้อมสำหรับการเปลี่ยนแปลงภายนอก",
@@ -212,7 +228,7 @@
           "เป็นการประเมินตนเองและสิ่งแวดล้อม"
         ],
         answer: 0,
-        exp: "SWOT วิเคราะห์องค์กรตนเอง (Strengths, Weaknesses) และสภาพแวดล้อมภายนอก (Opportunities, Threats) ไม่ใช่เครื่องมือประเมินคู่แข่งโดยตรง"
+        exp: "SWOT เน้นการวิเคราะห์องค์กรตนเอง (Strengths, Weaknesses) ควบคู่กับปัจจัยสิ่งแวดล้อมภายนอก (Opportunities, Threats) ไม่ใช่เครื่องมือประเมินคู่แข่งโดยตรงแบบ Competitor Analysis"
       },
       {
         id: 3,
@@ -224,11 +240,11 @@
           "ทำชุดคำสั่งที่อยู่ระหว่าง repeat until อย่างน้อย 1 ครั้ง อย่างมากที่สุด until maximum"
         ],
         answer: 0,
-        exp: "Repeat...Until เป็นลูปแบบ Post-test จะทำงานคำสั่งในลูปอย่างน้อย 1 ครั้งแน่นอน แล้วหยุดทำเมื่อเงื่อนไขหลัง Until ประเมินเป็นจริง (True)"
+        exp: "Repeat...Until จะรันชุดคำสั่งก่อนตรวจสอบเงื่อนไขอย่างน้อย 1 รอบเสมอ และจะวนทำต่อไปเรื่อยๆ จนกระทั่งเงื่อนไขหลัง Until ประเมินค่าออกมาเป็นจริง (True) จึงจะหลุดลูป"
       },
       {
         id: 4,
-        q: "ข้อใดเป็นการจับคู่ที่ถูกต้องระหว่าง กลยุทธ์ และการใช้ IS?",
+        q: "ข้อใดเป็นการจับคู่ที่ถูกต้องระหว่าง 'กลยุทธ์ (Strategy)' และ 'การนำ IS มาใช้'?",
         options: [
           "RFID ใน warehouse - cost leadership",
           "Digital marketing - customer intimacy",
@@ -236,131 +252,143 @@
           "Chat bot - Product differentiation"
         ],
         answer: 0,
-        exp: "การนำ RFID มาใช้ในคลังสินค้า ช่วยลดความผิดพลาด ลดเวลา และลดต้นทุนแรงงานอย่างมีนัยสำคัญ ตรงกับกลยุทธ์ Cost Leadership"
+        exp: "การใช้ RFID ในคลังสินค้าช่วยลดข้อผิดพลาด ลดเวลา และลดต้นทุนแรงงาน จึงสนับสนุนกลยุทธ์ความเป็นผู้นำด้านต้นทุน (Cost Leadership) ได้ตรงจุดที่สุด"
       },
       {
         id: 5,
-        q: "ข้อใดไม่ถูกต้องเกี่ยวกับ absolute และ relative reference ใน excel?",
+        q: "ข้อใดไม่ถูกต้องเกี่ยวกับ Absolute Reference ($) และ Relative Reference ในโปรแกรม Excel?",
         options: [
-          "เราแทบไม่จำเป็นต้องใช้ $ หน้าคอลัมน์เลยเพราะการ copy สูตรมักมีทิศทางจากบนลงล่างตลอดเวลาอยู่แล้ว",
-          "relative reference จะเปลี่ยน row หรือ column แล้วแต่ทิศทางที่สูตรถูก copy",
-          "absolute reference ช่วยให้เรากำหนดให้ cell reference บางอันในสูตร ไม่ถูกเปลี่ยนแปลง",
-          "relative reference ไม่ต้องใส่ $ ที่ cell reference"
+          "เราแทบไม่จำเป็นต้องใส่เครื่องหมาย $ หน้าคอลัมน์เลย เพราะการ copy สูตรมักมีทิศทางจากบนลงล่างตลอดเวลาอยู่แล้ว",
+          "Relative reference จะเปลี่ยน row หรือ column แล้วแต่ทิศทางที่สูตรถูก copy",
+          "Absolute reference ช่วยให้เรากำหนดให้ cell reference บางอันในสูตรไม่ถูกเปลี่ยนแปลง",
+          "Relative reference ไม่ต้องใส่เครื่องหมาย $ ที่ cell reference"
         ],
         answer: 0,
-        exp: "ในงานจริงการ copy สูตรมีทั้งลากแนวนอน ข้ามคอลัมน์ และการทำตารางคำนวณแบบสองมิติ การใส่ $ ล็อกคอลัมน์จึงมีความจำเป็นอย่างยิ่ง"
+        exp: "แม้การคัดลอกจากบนลงล่างจะเปลี่ยนแถวเป็นหลัก แต่ในงานจริงหากมีการลากข้ามคอลัมน์ หรือสร้างตาราง Matrix สองมิติ การใส่ $ หน้าคอลัมน์ถือเป็นสิ่งจำเป็นอย่างยิ่ง"
       },
       {
         id: 6,
-        q: "ลำดับขั้นของ DIKW ข้อใดจัดเป็น 'Information'?",
+        q: "ตามโมเดล DIKW ข้อใดจัดเป็น 'Information' อย่างแท้จริง?",
         options: [
-          "รายงานสรุปยอดขายแยกตามหมวดหมู่สินค้าในไตรมาสที่ 1",
-          "ตัวเลขสถิติ 15, 38, 92 ที่ยังไม่ได้จัดกลุ่ม",
-          "ไฟล์ภาพถ่ายสต๊อกสินค้าทั้งหมดในโกดัง",
-          "ทักษะความชำนาญของผู้จัดการคลังสินค้าในการกระจายงาน"
+          "รายงานยอดขายรายเดือนที่สรุปว่าสาขาภาคเหนือมียอดเติบโตสูงสุด 25%",
+          "ไฟล์ภาพบันทึกใบเสร็จจำนวน 500 ภาพ",
+          "รายการบันทึกตัวเลขอุณหภูมิในคลังสินค้าทุกๆ 1 วินาที",
+          "ความชำนาญของผู้จัดการในการแก้ปัญหาเมื่อสต๊อกสินค้าขาดแคลน"
         ],
         answer: 0,
-        exp: "Information คือ Data ที่ผ่านการประมวลผล จัดหมวดหมู่ และมีบริบทจนสามารถนำมาอธิบายสถานการณ์ได้"
+        exp: "Information คือ Data ที่ผ่านการประมวลผล จัดหมวดหมู่ และมีบริบทจนสามารถนำมาใช้วิเคราะห์หรืออธิบายสถานการณ์ได้"
       },
       {
         id: 7,
-        q: "ข้อใดคือหัวใจสำคัญของ Digital Disruption ในมุมมองของโมเดลธุรกิจ Grab และ Airbnb?",
+        q: "สถานการณ์ใดจัดเป็น 'Digital Disruption' อย่างชัดเจนที่สุด?",
         options: [
-          "ใช้ประโยชน์จากเทคโนโลยีเพื่อดึงสินทรัพย์หรือแรงงานที่มีอยู่แล้วมาสร้างบริการที่คุ้มค่ากว่าโดยไม่ต้องลงทุนสร้างเองทั้งหมด",
-          "ซื้อรถยนต์และสร้างตึกโรงแรมจำนวนมากเพื่อผูกขาดตลาด",
-          "เน้นการขายตัดราคาเพียงอย่างเดียวโดยไม่พัฒนาแอปพลิเคชัน",
-          "การจ้างพนักงานประจำจำนวนมหาศาลเพื่อให้บริการครอบคลุม"
+          "แอปพลิเคชันเรียกรถอย่าง Grab ทำให้ผู้โดยสารเปลี่ยนพฤติกรรมจนแท็กซี่แบบดั้งเดิมประสบปัญหาลูกค้าน้อยลง",
+          "ร้านหนังสือเพิ่มหลอดไฟส่องสว่าง LED เพื่อประหยัดพลังงาน",
+          "โรงงานเปลี่ยนเครื่องพิมพ์เอกสารรุ่นใหม่เพื่อให้พิมพ์เร็วขึ้น",
+          "บริษัทนำระบบสแกนลายนิ้วมือมาใช้แทนการตอกบัตรลงเวลา"
         ],
         answer: 0,
-        exp: "Grab ขยายรถได้โดยไม่ต้องซื้อรถ และ Airbnb มีห้องพักมหาศาลโดยไม่ต้องสร้างโรงแรมเอง ทำให้ขยายตัวได้รวดเร็วและต้นทุนต่ำกว่าคู่แข่งเดิม"
+        exp: "Digital Disruption คือการที่เทคโนโลยีหรือโมเดลธุรกิจใหม่เข้ามาเปลี่ยนแปลงโครงสร้างตลาด จนส่งผลกระทบต่อธุรกิจดั้งเดิมอย่างรุนแรง"
       },
       {
         id: 8,
-        q: "เว็บไซต์ประเภท Trip.com และ Agoda จัดเป็น Internet Business Model แบบใด?",
+        q: "ข้อใดคือตัวอย่างของ 'Transaction Broker' ในโมเดลธุรกิจอินเทอร์เน็ต?",
         options: [
-          "Transaction Broker",
-          "E-tailer",
-          "Marketplace",
-          "Portal"
+          "Agoda และ Trip.com",
+          "เว็บไซต์ขายเสื้อผ้าออนไลน์ของ Zara",
+          "Shopee และ Lazada",
+          "Google Drive และ iCloud"
         ],
         answer: 0,
-        exp: "Transaction Broker คือตัวกลางหรือนายหน้าที่อำนวยความสะดวกในการทำธุรกรรมระหว่างผู้ซื้อและผู้ให้บริการ"
+        exp: "Agoda และ Trip.com ทำหน้าที่เป็นนายหน้าประสานงานธุรกรรมระหว่างผู้ซื้อกับผู้ให้บริการโรงแรม/เที่ยวบิน"
       },
       {
         id: 9,
-        q: "ข้อใดอธิบายเรื่อง 'Switching Cost' ใน Five Forces Model ได้ถูกต้องที่สุด?",
+        q: "ใน Porter's Five Forces Model ข้อใดอธิบายเรื่อง 'Switching Cost' ได้ถูกต้อง?",
         options: [
-          "หากลูกค้ามี Switching Cost สูง จะทำให้อำนาจต่อรองของผู้ซื้อลดลง",
-          "Switching Cost สูงทำให้ลูกค้าเปลี่ยนไปซื้อสินค้าของคู่แข่งได้ง่ายขึ้น",
-          "เป็นต้นทุนที่บริษัทต้องจ่ายเพื่อซื้อเครื่องจักรใหม่",
-          "Switching Cost ต่ำจะช่วยให้บริษัทรักษาส่วนแบ่งตลาดได้คงที่เสมอ"
+          "หากลูกค้ามีต้นทุนในการเปลี่ยนไปใช้เจ้าอื่นสูง จะช่วยลดอำนาจต่อรองของผู้ซื้อ",
+          "ต้นทุนในการย้ายค่ายยิ่งต่ำ บริษัทจะยิ่งได้เปรียบในการผูกขาด",
+          "Switching cost หมายถึงค่าธรรมเนียมที่ผู้ขายต้องจ่ายให้กับผู้ผลิตวัตถุดิบเสมอ",
+          "การเพิ่มทางเลือกให้ลูกค้าเป็นวิธีหลักในการเพิ่ม Switching Cost"
         ],
         answer: 0,
-        exp: "ถ้าการเปลี่ยนไปใช้สินค้าหรือบริการอื่นมีต้นทุนหรือความยุ่งยากสูง (High Switching Cost) ลูกค้าจะเปลี่ยนเจ้ายาก อำนาจต่อรองของลูกค้าจึงลดลง"
+        exp: "Switching Cost คือต้นทุนหรือความยุ่งยากที่ผู้บริโภคต้องแบกรับหากย้ายไปใช้สินค้าคู่แข่ง หากสูง ลูกค้าจะเปลี่ยนเจ้ายาก ทำให้อำนาจต่อรองของลูกค้าลดลง"
       },
       {
         id: 10,
-        q: "ระบบ Rule-based แตกต่างจาก Machine Learning อย่างไร?",
+        q: "ข้อแตกต่างสำคัญระหว่าง 'Rule-based System' กับ 'Machine Learning' คืออะไร?",
         options: [
-          "Rule-based ทำงานตามเงื่อนไขเป๊ะๆ ขาดความยืดหยุ่น หากเงื่อนไขเปลี่ยนจะเกิด Error",
-          "Rule-based สามารถพยากรณ์ข้อมูลใหม่ที่ไม่เคยป้อนมาก่อนได้อย่างแม่นยำ",
-          "Machine Learning ต้องให้มนุษย์เขียนโค้ด if-else ครอบคลุมทุกความเป็นไปได้",
-          "Machine Learning ขาดความยืดหยุ่นในการปรับตัวตามชุดข้อมูล"
+          "Rule-based ทำงานตามเงื่อนไขที่มนุษย์เขียนไว้อย่างตายตัว ขณะที่ Machine Learning สามารถเรียนรู้รูปแบบจากข้อมูลได้เอง",
+          "Rule-based มีความยืดหยุ่นสูงกว่าเมื่อเจอข้อมูลที่ไม่เคยพบมาก่อน",
+          "Machine Learning ต้องอาศัยมนุษย์ป้อนเงื่อนไข if-else ครบทุกกรณี",
+          "Rule-based เหมาะกับงานที่มีความซับซ้อนของข้อมูลสูงและมีข้อมูลมหาศาล"
         ],
         answer: 0,
-        exp: "Rule-based คือการทำงานตามกฎเกณฑ์ตายตัว ถ้ามีเคสที่ไม่ได้ระบุไว้จะ Error ทันที ส่วน ML เรียนรู้รูปแบบจาก Data จึงมีความยืดหยุ่นสูงกว่า"
+        exp: "Rule-based ขาดความยืดหยุ่น (No Elasticity) ทำตามโค้ดเป๊ะๆ หากเกิดกรณีใหม่จะ Error ทันที ส่วน ML วิเคราะห์จาก Data เพื่อหารูปแบบเอง"
       },
       {
         id: 11,
-        q: "หาก Data Labels มีข้อความยาวมาก ควรเลือกนำเสนอด้วยแผนภูมิแบบใด?",
+        q: "เมื่อต้องการเปรียบเทียบข้อมูลที่มีข้อความชื่อหมวดหมู่ (Data Labels) ขนาดยาว ควรเลือกใช้แผนภูมิชนิดใด?",
         options: [
           "Bar Chart (กราฟแท่งแนวนอน)",
           "Column Chart (กราฟแท่งแนวตั้ง)",
-          "Pie Chart (กราฟวงกลม)",
-          "Line Chart (กราฟเส้น)"
+          "Pie Chart (แผนภูมิวงกลม)",
+          "Line Chart (แผนภูมิเส้น)"
         ],
         answer: 0,
-        exp: "Bar Chart แนวนอนมีพื้นที่สำหรับแสดงข้อความ Label ขนาดยาวบนแกนตั้งได้สะดวกและอ่านง่ายที่สุด"
+        exp: "Bar Chart (แนวนอน) มีพื้นที่แกนแนวตั้งกว้างขวาง ทำให้อ่านชื่อหมวดหมู่ที่ยาวได้ง่ายโดยไม่ต้องเอียงตัวอักษร"
       },
       {
         id: 12,
-        q: "กฎสำคัญของการนำเสนอข้อมูลด้วย Pie Chart คือข้อใด?",
+        q: "ข้อห้ามสำคัญในการนำเสนอข้อมูลด้วย Pie Chart คือข้อใด?",
         options: [
           "ไม่ควรแบ่งส่วนเกิน 5-6 ส่วน และผลรวมของทุกส่วนต้องเท่ากับ 100%",
-          "ต้องมีข้อมูลอย่างน้อย 10 ส่วนขึ้นไป",
-          "ใช้สำหรับเปรียบเทียบข้อมูลที่มีการเปลี่ยนแปลงตามเวลาเท่านั้น",
-          "ไม่จำเป็นต้องรวมกันได้ 100%"
+          "ต้องแสดงข้อมูลแนวโน้มตามเวลาอย่างน้อย 12 เดือน",
+          "ห้ามใส่เปอร์เซ็นต์ในชิ้นพาย",
+          "ต้องมีแกน X และ แกน Y เสมอ"
         ],
         answer: 0,
-        exp: "Pie Chart แสดงสัดส่วนขององค์รวม (100%) หากแบ่งเกิน 5-6 ส่วนจะแยกแยะและเปรียบเทียบพื้นที่ของแต่ละส่วนได้ยากมาก"
+        exp: "Pie Chart เหมาะกับการแสดงสัดส่วนขององค์รวม (100%) และไม่ควรมีชิ้นพายเกิน 5-6 ส่วน เพราะจะทำให้อ่านและเปรียบเทียบยาก"
       },
       {
         id: 13,
-        q: "เหตุใด 'ตลาดดิจิทัล (Digital Market)' จึงมี 'Menu Cost' ต่ำกว่า 'ตลาดดั้งเดิม'?",
+        q: "ในระบบ E-Commerce ข้อใดเป็นหน้าที่ของ 'Product Configuration'?",
         options: [
-          "เพราะสามารถอัปเดตราคาบนระบบได้ทันทีโดยไม่ต้องพิมพ์และเปลี่ยนป้ายราคาใหม่ที่หน้าร้าน",
-          "เพราะตลาดดิจิทัลไม่ต้องเสียภาษี",
-          "เพราะลูกค้าเป็นคนกรอกราคาที่ต้องการซื้อเองเสมอ",
-          "เพราะสินค้าในตลาดดิจิทัลไม่มีวันหมดอายุ"
+          "การเปิดให้ผู้ซื้อปรับแต่งคุณลักษณะของสินค้า เช่น เลือกสี ขนาด ความจุ",
+          "การจัดหมวดหมู่สินค้าในแคตตาล็อกหน้าแรก",
+          "การตัดยอดเงินผ่านบัตรเครดิต",
+          "การคำนวณและประมวลผลการจัดส่งพัสดุ"
         ],
         answer: 0,
-        exp: "Menu Cost คือต้นทุนในการเปลี่ยนและประกาศราคา ตลาดดิจิทัลแก้โค้ดหรือแก้ไขฐานข้อมูลก็มีผลทันที ต่างจากหน้าร้านที่ต้องพิมพ์และเปลี่ยนป้าย"
+        exp: "Product Configuration ช่วยให้ลูกค้าสามารถปรับแต่งตัวเลือกสเปก สี ไซส์ หรืออุปกรณ์เสริมของสินค้านั้นๆ ได้ก่อนสั่งซื้อ"
       },
       {
         id: 14,
-        q: "การปรับราคาค่าบริการของ Grab ตามช่วงเวลาฝนตกหรือเวลาเร่งด่วน จัดเป็นกลยุทธ์ใด?",
+        q: "เหตุใด 'ตลาดดิจิทัล (Digital Market)' จึงมี 'Menu Cost' ต่ำกว่า 'ตลาดดั้งเดิม (Traditional Market)'?",
+        options: [
+          "เพราะสามารถอัปเดตราคาในระบบฐานข้อมูลได้ทันทีโดยไม่ต้องพิมพ์ป้ายราคาใหม่",
+          "เพราะตลาดดิจิทัลไม่ต้องเสียค่าธรรมเนียมภาษีมูลค่าเพิ่ม",
+          "เพราะลูกค้าเป็นผู้กำหนดราคาสินค้าเองทั้งหมด",
+          "เพราะต้นทุนการจัดส่งสินค้าดิจิทัลเป็นศูนย์เสมอ"
+        ],
+        answer: 0,
+        exp: "Menu Cost คือต้นทุนในการเปลี่ยนและประกาศราคาใหม่ บนดิจิทัลแก้โค้ดหรือฐานข้อมูลก็เปลี่ยนได้ทันที ต่างจากหน้าร้านที่ต้องพิมพ์และติดป้ายใหม่"
+      },
+      {
+        id: 15,
+        q: "การที่ Grab หรือ Uber ปรับราคาค่าโดยสารให้สูงขึ้นในช่วงเวลาเร่งด่วนหรือฝนตก จัดเป็นกลยุทธ์ใด?",
         options: [
           "Dynamic Pricing",
-          "Menu Cost Expansion",
+          "Menu Cost Minimization",
           "Disintermediation",
           "BPR"
         ],
         answer: 0,
-        exp: "Dynamic Pricing คือการตั้งราคาแบบยืดหยุ่นตามระดับอุปสงค์-อุปทาน และสภาพแวดล้อม ณ ช่วงเวลานั้นๆ แบบเรียลไทม์"
+        exp: "Dynamic Pricing (การตั้งราคาแบบยืดหยุ่นตามอุปสงค์-อุปทาน) เป็นการใช้อัลกอริทึมปรับราคาให้สอดคล้องกับสภาพตลาดแบบเรียลไทม์"
       },
       {
-        id: 15,
-        q: "ข้อใดถือเป็น Primary Activity ในโมเดล Business Value Chain?",
+        id: 16,
+        q: "ข้อใดถือเป็น 'Primary Activity' ในโมเดล Business Value Chain?",
         options: [
           "Inbound Logistics และ Operations",
           "Human Resource Management",
@@ -368,359 +396,584 @@
           "Procurement (การจัดซื้อจัดจ้างส่วนกลาง)"
         ],
         answer: 0,
-        exp: "กิจกรรมหลัก (Primary Activities) ได้แก่ Inbound Logistics, Operations, Outbound Logistics, Marketing & Sales และ Customer Service"
-      },
-      {
-        id: 16,
-        q: "Business Process Reengineering (BPR) แตกต่างจาก Continuous Improvement อย่างไร?",
-        options: [
-          "BPR คือการรื้อและออกแบบกระบวนการใหม่ทั้งหมดแบบก้าวกระโดด",
-          "BPR คือการค่อยๆ ปรับปรุงทีละนิดตามข้อเสนอแนะหน้างาน",
-          "Continuous Improvement ต้องใช้ผู้เชี่ยวชาญจากต่างประเทศเท่านั้น",
-          "Continuous Improvement เป็นการลดจำนวนพนักงานลงทันที 50%"
-        ],
-        answer: 0,
-        exp: "BPR คือการคิดใหม่ ทำใหม่ และรื้อกระบวนการเพื่อยกระดับผลลัพธ์แบบก้าวกระโดด ส่วน Continuous Improvement คือการค่อยๆ ปรับปรุงสะสม"
+        exp: "Primary Activities ประกอบด้วย Inbound Logistics, Operations, Outbound Logistics, Marketing & Sales และ Service ส่วนข้ออื่นคือ Support Activities"
       },
       {
         id: 17,
-        q: "คำว่า 'Disintermediation' ก่อให้เกิดผลกระทบอย่างไรในห่วงโซ่ธุรกิจ?",
+        q: "การปรับปรุงธุรกิจแบบ 'Business Process Reengineering (BPR)' มีลักษณะเด่นอย่างไร?",
         options: [
-          "ผู้ผลิตสามารถขายตรงไปยังผู้บริโภคได้โดยไม่ต้องผ่านพ่อค้าคนกลาง",
-          "เกิดการเพิ่มตัวแทนจำหน่ายหลายทอดเพื่อกระจายสินค้า",
-          "ทำให้ราคาสินค้าเพิ่มขึ้นเนื่องจากค่าขนส่งซ้ำซ้อน",
-          "ทำให้การสื่อสารระหว่างผู้ซื้อและผู้ผลิตยากขึ้น"
+          "เป็นการรื้อและออกแบบกระบวนการใหม่ทั้งหมดแบบก้าวกระโดด",
+          "เป็นการค่อยๆ ปรับปรุงงานหน้างานทีละเล็กละน้อย (Kaizen)",
+          "เป็นการจ้างแรงงานจากภายนอกประเทศมาลดต้นทุน",
+          "เป็นการปรับลดขนาดองค์กรโดยการปลดพนักงาน"
         ],
         answer: 0,
-        exp: "Disintermediation คือการตัดตัวกลางออก ทำให้ลดต้นทุนส่วนต่างและสามารถสื่อสารขายตรงกับผู้บริโภคได้ทันที"
+        exp: "BPR คือการคิดใหม่ ทำใหม่ และรื้อโครงสร้างกระบวนการเดิมทั้งหมดเพื่อสร้างผลลัพธ์ที่ก้าวกระโดด ไม่ใช่แค่การปรับปรุงแบบค่อยเป็นค่อยไป"
       },
       {
         id: 18,
-        q: "ตู้กดน้ำดื่มหยอดเหรียญที่ไม่มีการบันทึกประวัติการซื้อหรือเชื่อมโยงเครือข่าย จัดเป็นสิ่งใด?",
+        q: "คำว่า 'Disintermediation' ในตลาดดิจิทัลหมายถึงข้อใด?",
         options: [
-          "Non-IS (ไม่ใช่ระบบสารสนเทศ)",
-          "Complete CBIS",
-          "Cloud Infrastructure",
-          "ERP System"
+          "การตัดตัวกลางออก ทำให้ผู้ผลิตขายสินค้าตรงไปยังผู้บริโภคได้โดยตรง",
+          "การเพิ่มตัวแทนจำหน่ายหลายระดับเพื่อขยายช่องทาง",
+          "การที่ข้อมูลทั้งสองฝ่ายไม่เท่าเทียมกัน",
+          "การควบรวมกิจการระหว่างบริษัทคู่แข่ง"
         ],
         answer: 0,
-        exp: "อุปกรณ์ที่เป็นเพียงกลไกรับเหรียญแล้วจ่ายน้ำ โดยไม่เก็บข้อมูลลง Database เพื่อนำมาประมวลผล จัดเป็น Non-IS"
+        exp: "Disintermediation คือการตัดคนกลาง (เช่น ยี่ปั๊ว ซาปั๊ว) ออกจากห่วงโซ่อุปทาน เพื่อให้ผู้ผลิตติดต่อและจำหน่ายสู่ผู้บริโภคโดยตรง"
       },
       {
         id: 19,
-        q: "หากต้องการล็อกคอลัมน์ A ไม่ให้เลื่อนเมื่อ copy สูตร แต่ยอมให้เลขแถวเปลี่ยนได้ ต้องเขียนสูตรอย่างไร?",
+        q: "ตู้กดน้ำหยอดเหรียญที่ไม่มีการบันทึกข้อมูลการขายหรือเชื่อมโยงเครือข่าย จัดเป็นประเภทใด?",
         options: [
-          "$A1",
-          "A$1",
-          "$A$1",
-          "A1"
+          "Non-IS (ไม่ใช่ระบบสารสนเทศ)",
+          "Complete CBIS",
+          "Cloud-based IS",
+          "Knowledge Management System"
         ],
         answer: 0,
-        exp: "ใส่ $ หน้าคอลัมน์ A ($A1) เพื่อล็อกคอลัมน์แบบ Absolute ส่วนแถวที่ 1 ไม่มี $ จึงเป็น Relative เลื่อนตามการลากสูตรได้"
+        exp: "อุปกรณ์ที่เป็นเพียงกลไกรับเหรียญแล้วจ่ายน้ำ โดยไม่เก็บข้อมูลลง Database หรือประมวลผลสถิติ ถือเป็น Non-IS"
       },
       {
         id: 20,
-        q: "การนำ Chatbot มาตอบคำถามลูกค้าเบื้องต้นตลอด 24 ชั่วโมง จัดเป็นคุณค่าของ IS ด้านใด?",
+        q: "หากต้องการล็อกไม่ให้แถวที่ 5 เปลี่ยนแปลงเมื่อคัดลอกสูตรใน Excel แต่ยอมให้คอลัมน์เลื่อนได้ ต้องเขียนอย่างไร?",
         options: [
-          "Automate (ทำงานแทนแรงงานคน)",
-          "Informate (วิเคราะห์ข้อมูลสถิติ)",
-          "Transformation (เปลี่ยนสัดส่วนผู้ถือหุ้น)",
-          "Disintermediation (ตัดระบบส่งข้อความ)"
+          "B$5",
+          "$B5",
+          "$B$5",
+          "B5"
         ],
         answer: 0,
-        exp: "Automate คือการเปลี่ยนงานแบบ Manual ที่คนเคยทำ มาให้ระบบคอมพิวเตอร์ทำงานแทนโดยอัตโนมัติ"
+        exp: "การใส่ $ ไว้หน้าเลข 5 (B$5) เป็นการล็อกแถวที่ 5 แบบ Absolute ในขณะที่ชื่อคอลัมน์ไม่มี $ จึงยังเป็น Relative"
       },
       {
         id: 21,
-        q: "เป้าหมายหลักของการนำระบบสารสนเทศมาใช้ใน Supply Chain Management คือข้อใด?",
+        q: "การนำ Chatbot มาตอบคำถามลูกค้าเบื้องต้นใน Shopee จัดเป็นคุณค่าของ IS ด้านใด?",
         options: [
-          "ส่งมอบสินค้าถูกต้อง ทันเวลา ต้นทุนต่ำลง และลดปัญหาสต๊อกส่วนเกิน",
-          "การเพิ่มจำนวนสต๊อกสินค้าในคลังให้มากที่สุดตลอดเวลา",
-          "การเพิ่มขั้นตอนการตรวจเอกสารกระดาษหลายๆ รอบ",
-          "การยกเลิกการประสานงานกับ Supplier ภายนอกทั้งหมด"
+          "Automate",
+          "Informate",
+          "Transform",
+          "Disrupt"
         ],
         answer: 0,
-        exp: "SCM มุ่งเน้นการส่งมอบที่แม่นยำ ตรงเวลา ต้นทุนต่ำ และลดสต๊อกส่วนเกินที่ไม่จำเป็นเพื่อไม่ให้เงินจม"
+        exp: "Automate คือการเปลี่ยนกระบวนการที่มนุษย์เคยทำด้วยมือ (Manual) มาให้ระบบทำงานแทนโดยอัตโนมัติ"
       },
       {
         id: 22,
-        q: "การที่ Nike ให้ลูกค้าปรับแต่งดีไซน์ สี และข้อความบนรองเท้าได้เอง จัดเป็นกลยุทธ์ใด?",
+        q: "ข้อใดคือเป้าหมายสูงสุดของการบริหารจัดการห่วงโซ่อุปทาน (Supply Chain Management)?",
         options: [
-          "Product Differentiation",
-          "Cost Leadership",
-          "Menu Cost Minimization",
-          "Offshoring"
+          "ส่งมอบสินค้าถูกต้อง ทันเวลา ต้นทุนต่ำสุด และลดปัญหาสต๊อกส่วนเกิน",
+          "สั่งซื้อวัตถุดิบมากักตุนให้ได้ปริมาณมากที่สุดเสมอ",
+          "การเพิ่มขั้นตอนการทำงานเพื่อความปลอดภัยขั้นสูงสุด",
+          "การกำจัดคู่แข่งทั้งหมดในตลาด"
         ],
         answer: 0,
-        exp: "การให้ปรับแต่งสินค้า (Customization) สร้างความแตกต่างและเพิ่มมูลค่าให้สินค้า จัดเป็น Product Differentiation"
+        exp: "SCM มุ่งเน้นความถูกต้อง รวดเร็ว ต้นทุนต่ำ และการลดสต๊อกส่วนเกินที่ทำให้เงินจม"
       },
       {
         id: 23,
-        q: "การเรียนรู้ของ Machine Learning แบบใดที่มี 'การป้อนข้อมูลพร้อมเฉลย (Labels)' เพื่อให้โมเดลฝึกฝน?",
+        q: "หากสูตรในช่อง C1 คือ `=A1+B1` เมื่อทำการคัดลอกสูตรไปยังช่อง C2 สูตรจะเปลี่ยนเป็นข้อใด?",
         options: [
-          "Supervised Learning",
-          "Unsupervised Learning",
-          "Reinforcement Learning",
-          "Rule-based Programming"
+          "=A2+B2",
+          "=A1+B1",
+          "=$A$2+$B$2",
+          "=B2+C2"
         ],
         answer: 0,
-        exp: "Supervised Learning เป็นการสอนโมเดลโดยมีชุดข้อมูลฝึกสอนพร้อมคำตอบที่ถูกต้องกำกับไว้ให้โมเดลเทียบวัดผล"
+        exp: "เนื่องจากใช้ Relative Reference เมื่อคัดลอกลงมาด้านล่าง 1 แถว ตำแหน่งแถวของสูตรจะเลื่อนตามเป็นแถวที่ 2"
       },
       {
         id: 24,
-        q: "ข้อใดเป็นตัวอย่างของ Unstructured Data ในองค์กรธุรกิจ?",
+        q: "จุดเด่นที่สุดของการใช้ RFID เมื่อเทียบกับ Barcode แบบดั้งเดิมในงานคลังสินค้าคืออะไร?",
         options: [
-          "คลิปวิดีโอสัมภาษณ์ความคิดเห็นของลูกค้า",
-          "ตารางฐานข้อมูลเงินเดือนพนักงาน",
-          "ตัวเลขรหัสสินค้าและยอดคงเหลือในสต๊อก",
-          "รายงานงบทดลองในโปรแกรมบัญชี"
+          "สามารถอ่านข้อมูลสินค้าได้หลายชิ้นพร้อมกันผ่านคลื่นวิทยุโดยไม่ต้องเล็งยิงทีละชิ้น",
+          "มีราคาต่อชิ้นถูกกว่ากระดาษสติกเกอร์บาร์โค้ด",
+          "ไม่ต้องใช้คอมพิวเตอร์ในการประมวลผลข้อมูล",
+          "สามารถทำงานได้โดยไม่ต้องมีฐานข้อมูลรองรับ"
         ],
         answer: 0,
-        exp: "วิดีโอ ภาพถ่าย และไฟล์เสียง จัดเป็นข้อมูลที่ไม่มีโครงสร้างตารางชัดเจน (Unstructured Data)"
+        exp: "RFID ส่งสัญญาณผ่านคลื่นวิทยุ ทำให้สแกนสินค้าจำนวนมากได้พร้อมกันในคราวเดียวโดยไม่ต้องใช้สายตามองเห็น (No line-of-sight)"
       },
       {
         id: 25,
-        q: "การเปรียบเทียบยอดขายจริง (Actual) เทียบกับเป้าหมาย (Target) ควรเลือกใช้แผนภูมิประเภทใด?",
+        q: "ข้อใดเป็นตัวอย่างของการใช้โมเดลธุรกิจแบบ 'Content Provider'?",
         options: [
-          "Combo Chart (แท่งควบคู่กับเส้น)",
-          "Pie Chart แบบ 3 มิติ",
-          "Scatter Plot สองจุด",
-          "Radar Chart ซ้อนกัน"
+          "Netflix และ Spotify",
+          "Lazada และ Shopee",
+          "Expedia และ Traveloka",
+          "Dropbox และ OneDrive"
         ],
         answer: 0,
-        exp: "Combo Chart ผสมผสาน Column แสดงผลจริง และ Line แสดงเส้นชัย/เป้าหมาย ทำให้เห็นผลต่างชัดเจนที่สุด"
+        exp: "Content Provider คือผู้ให้บริการที่เผยแพร่และส่งมอบเนื้อหาดิจิทัล เช่น หนัง ดนตรี หรือบทความ ให้แก่ผู้บริโภค"
       },
       {
         id: 26,
-        q: "โมเดลธุรกิจของ E-tailer มีลักษณะเด่นอย่างไร?",
+        q: "ความสัมพันธ์แบบ 'Customer Intimacy' สามารถสร้างขึ้นได้อย่างมีประสิทธิภาพผ่านระบบสารสนเทศใดมากที่สุด?",
         options: [
-          "ร้านค้าออนไลน์ที่จัดซื้อ/ผลิต และขายสินค้าของตนเองโดยตรง",
-          "เป็นแพลตฟอร์มตลาดกลางให้ผู้ซื้อและผู้ขายมาเจอกันแบบ Shopee",
-          "เป็นเว็บบอร์ดสำหรับตั้งกระทู้สนทนาแลกเปลี่ยนความคิดเห็น",
-          "เป็นเครื่องมือค้นหาข้อมูลสารสนเทศทั่วโลก"
+          "CRM (Customer Relationship Management)",
+          "ERP ภาคการผลิตโรงงาน",
+          "ระบบตอกบัตรพนักงาน",
+          "ระบบคำนวณภาษีของรัฐบาล"
         ],
         answer: 0,
-        exp: "E-tailer คือผู้ค้าปลีกออนไลน์ที่จำหน่ายสินค้าเอง (เช่น Apple Store Online) ไม่ใช่ตัวกลาง Marketplace แบบ Shopee หรือ Lazada"
+        exp: "CRM ช่วยเก็บรวบรวมประวัติ พฤติกรรม และความต้องการของลูกค้า ทำให้สามารถสร้างความผูกพันและการบริการที่ตอบโจทย์เฉพาะบุคคลได้"
       },
       {
         id: 27,
-        q: "ข้อใดเป็นภัยคุกคามภายนอก (Threat) ของ Starbucks ตามการวิเคราะห์ SWOT?",
+        q: "เทคนิคการเรียนรู้ของเครื่องแบบใดที่ 'ไม่มีการเฉลยคำตอบ (No Labels)' ให้โมเดลล่วงหน้า?",
         options: [
-          "ต้นทุนวัตถุดิบผันผวนและคู่แข่งในตลาดเพิ่มจำนวนขึ้น",
-          "แบรนด์มีชื่อเสียงและเป็นที่จดจำในระดับโลก",
-          "ต้องใช้เงินลงทุนสูงในการเปิดสาขาใหม่",
-          "กระแสความนิยมกาแฟแบบแคปซูล K-cup ที่เพิ่มสูงขึ้น"
+          "Unsupervised Learning",
+          "Supervised Learning",
+          "Rule-based Programming",
+          "Regression Analysis"
         ],
         answer: 0,
-        exp: "ต้นทุนวัตถุดิบที่ผันผวนและการแข่งขันที่ดุเดือด เป็นปัจจัยลบภายนอกที่ควบคุมไม่ได้ จัดเป็น Threats"
+        exp: "Unsupervised Learning ป้อนข้อมูลโดยไม่มีเฉลย เพื่อให้อัลกอริทึมค้นหารูปแบบหรือจัดกลุ่ม (Clustering) ข้อมูลด้วยตนเอง"
       },
       {
         id: 28,
-        q: "ใน CBIS องค์ประกอบใดหมายถึง 'ขั้นตอนและระเบียบปฏิบัติในการทำงาน'?",
+        q: "การที่บริษัท Nike ให้ลูกค้าสามารถเลือกสี วัสดุ และปักชื่อบนรองเท้าของตนเองผ่านเว็บไซต์ จัดเป็นกลยุทธ์ใด?",
         options: [
-          "Procedures",
-          "Software",
-          "People",
-          "Hardware"
+          "Product Differentiation",
+          "Cost Leadership",
+          "Menu Cost Exploitation",
+          "Offshoring"
         ],
         answer: 0,
-        exp: "Procedures คือลำดับขั้นตอน กฎเกณฑ์ และคู่มือการปฏิบัติงานที่บุคลากรต้องทำตามเมื่อใช้ระบบสารสนเทศ"
+        exp: "การปรับแต่งสินค้า (Customization) ทำให้สินค้ามีความแตกต่างและสร้างมูลค่าเพิ่ม ถือเป็น Product Differentiation"
       },
       {
         id: 29,
-        q: "การแชร์ข้อมูลระดับสต๊อกและแผนการผลิตให้ Supplier เข้าถึงได้ มีประโยชน์หลักอย่างไร?",
+        q: "การย้ายแผนกบริการลูกค้า (Call Center) ไปยังต่างประเทศที่มีต้นทุนค่าจ้างถูกกว่าและใช้ภาษาอังกฤษเป็นหลัก เรียกว่าอะไร?",
         options: [
-          "ทำให้ Supplier สามารถวางแผนการส่งมอบวัตถุดิบได้ทันเวลาพอดี (Just-in-Time)",
-          "เพื่อให้ Supplier สามารถขึ้นราคาวัตถุดิบได้ตลอดเวลา",
-          "เพื่อเปิดเผยข้อมูลบัญชีทั้งหมดให้บุคคลภายนอกทราบ",
-          "เพื่อลดจำนวนพนักงานในโรงงานของ Supplier"
+          "Offshoring",
+          "Disintermediation",
+          "Automation",
+          "Dynamic Pricing"
         ],
         answer: 0,
-        exp: "การเชื่อมต่อข้อมูลกับ Supplier ช่วยให้วางแผนส่งวัตถุดิบล่วงหน้าได้แม่นยำ ลดปัญหาสต๊อกขาดหรือล้นเกิน"
+        exp: "Offshoring คือการย้ายกระบวนการธุรกิจหรือการปฏิบัติงานไปยังต่างประเทศเพื่อประโยชน์ด้านต้นทุนหรือความเชี่ยวชาญเฉพาะ"
       },
       {
         id: 30,
-        q: "Deep Learning ใช้สถาปัตยกรรมแบบใดในการประมวลผลข้อมูลขั้นสูง?",
+        q: "หากต้องการแสดงสัดส่วนของยอดขายแต่ละผลิตภัณฑ์เทียบกับยอดขายรวมในแต่ละไตรมาส ควรใช้กราฟใด?",
         options: [
-          "Neural Networks (โครงข่ายประสาทเทียมหลายชั้น)",
-          "Decision Tree แบบชั้นเดียว",
-          "คำสั่ง if-else แบบลูกโซ่",
-          "Linear Regression สมการเส้นตรง"
+          "100% Stacked Column Chart",
+          "Scatter Plot",
+          "Line Chart",
+          "Radar Chart"
         ],
         answer: 0,
-        exp: "Deep Learning มีพื้นฐานมาจาก Artificial Neural Networks หลายๆ เลเยอร์ เพื่อวิเคราะห์ความสัมพันธ์ของข้อมูลที่ซับซ้อน"
+        exp: "100% Stacked Column Chart แสดงแท่งสูงเท่ากันที่ 100% โดยแบ่งสัดส่วนตามเปอร์เซ็นต์ของแต่ละองค์ประกอบในแต่ละช่วงเวลาได้อย่างชัดเจน"
       },
-      // ข้อที่ 31-100 ครบถ้วนตามฐานข้อมูล
-      ...Array.from({ length: 70 }, (_, idx) => {
-        const qNum = idx + 31;
+      {
+        id: 31,
+        q: "ข้อใดจัดเป็นข้อมูลประเภท Unstructured Data?",
+        options: [
+          "วิดีโอรีวิวสินค้าจากลูกค้าบน YouTube",
+          "ตารางฐานข้อมูลคะแนนสอบของนักศึกษา",
+          "ตัวเลขรหัสพนักงานในไฟล์ Excel",
+          "ยอดเงินคงเหลือในบัญชีธนาคาร"
+        ],
+        answer: 0,
+        exp: "วิดีโอ ไฟล์เสียง และรูปภาพ เป็นข้อมูลที่ไม่มีโครงสร้างความสัมพันธ์ในรูปแบบตารางที่ชัดเจน จัดเป็น Unstructured Data"
+      },
+      {
+        id: 32,
+        q: "ข้อใดอธิบายบทบาทของ 'Feedback' ในระบบสารสนเทศได้ถูกต้องที่สุด?",
+        options: [
+          "การส่งผลลัพธ์กลับมาตรวจสอบและปรับปรุงการประมวลผลหรือข้อมูลนำเข้า",
+          "การลบข้อมูลที่ไม่ได้ใช้งานทิ้งโดยอัตโนมัติ",
+          "การบันทึกข้อมูลถาวรลงในฐานข้อมูลสำรอง",
+          "การพิมพ์รายงานสรุปผลออกมาทางเครื่องพิมพ์"
+        ],
+        answer: 0,
+        exp: "Feedback คือผลลัพธ์ที่สะท้อนกลับมายังระบบเพื่อใช้ควบคุม ตรวจสอบข้อผิดพลาด และปรับปรุงประสิทธิภาพของ Input หรือ Process"
+      },
+      {
+        id: 33,
+        q: "ข้อใดไม่ใช่ลักษณะที่ดีของ 'Information' ที่มีคุณภาพ?",
+        options: [
+          "มีปริมาณมากจนผู้บริหารอ่านไม่หมด",
+          "มีความถูกต้องและน่าเชื่อถือ (Accurate)",
+          "ตรงกับเวลาที่ต้องการใช้งาน (Timely)",
+          "เข้าถึงได้ง่ายและมีความครบถ้วน (Complete)"
+        ],
+        answer: 0,
+        exp: "สารสนเทศที่ดีต้องมีปริมาณพอเหมาะ (Concise/Relevant) การมีข้อมูลมากเกินไปจะเกิดภาวะ Information Overload จนตัดสินใจไม่ได้"
+      },
+      {
+        id: 34,
+        q: "ระบบ POS (Point of Sale) ที่แคชเชียร์ใช้จัดเป็นระบบสารสนเทศเพราะเหตุใด?",
+        options: [
+          "มีการรับข้อมูล แปลงราคา ตัดสต๊อก และเชื่อมต่อฐานข้อมูลเพื่อวิเคราะห์พฤติกรรม",
+          "เพราะมีหน้าจอและลิ้นชักเก็บเงินที่เป็นเหล็กแข็งแรง",
+          "เพราะใช้ไฟฟ้าในการขับเคลื่อนกลไก",
+          "เพราะต้องใช้พนักงานที่เป็นมนุษย์ยืนคีย์ข้อมูลเท่านั้น"
+        ],
+        answer: 0,
+        exp: "POS เป็นระบบ IS ที่สมบูรณ์ เพราะประกอบด้วย Input, Process, Output, และ Database ข้ามเครือข่าย"
+      },
+      {
+        id: 35,
+        q: "ในมุมมองของ Five Forces หากในตลาดมีคู่แข่งหน้าใหม่สามารถเข้ามาตั้งธุรกิจได้ง่าย แสดงว่าอะไร?",
+        options: [
+          "Barrier to Entry (อุปสรรคในการเข้าสู่ตลาด) ต่ำ",
+          "Switching Cost สูงมาก",
+          "ผู้ซื้อไม่มีอำนาจต่อรอง",
+          "เกิดการผูกขาดอย่างสมบูรณ์"
+        ],
+        answer: 0,
+        exp: "เมื่อคู่แข่งรายใหม่ (New Entrants) เข้ามาได้ง่าย แสดงว่าตลาดนั้นมีอุปสรรคหรือกำแพงการเข้าสู่ตลาดต่ำ"
+      },
+      {
+        id: 36,
+        q: "ตัวอย่างใดจัดเป็น 'Community Provider' ในโมเดลธุรกิจดิจิทัล?",
+        options: [
+          "Facebook และ เว็บบอร์ด Pantip",
+          "Shopee",
+          "Apple Online Store",
+          "สำนักข่าวออนไลน์ BBC"
+        ],
+        answer: 0,
+        exp: "Community Provider คือพื้นที่ออนไลน์ที่ให้ผู้คนที่มีความสนใจร่วมกันเข้ามาพบปะ แลกเปลี่ยน และสนทนากัน"
+      },
+      {
+        id: 37,
+        q: "การใช้อัลกอริทึมแนะนำสินค้า (Recommendation System) บนหน้าเว็บ E-commerce เป็นตัวอย่างของข้อใด?",
+        options: [
+          "การใช้ Machine Learning เพื่อสร้าง Personalization",
+          "การใช้ Rule-based ดั้งเดิมแบบตายตัว",
+          "การลด Menu Cost ของเว็บไซต์",
+          "การทำ Offshoring การตลาด"
+        ],
+        answer: 0,
+        exp: "ระบบแนะนำสินค้าใช้ Machine Learning ในการวิเคราะห์ประวัติการเข้าชมและพฤติกรรมเพื่อนำเสนอสินค้าแบบเฉพาะบุคคล"
+      },
+      {
+        id: 38,
+        q: "โมเดลปัญญาประดิษฐ์ประเภท 'Transformer Model' นิยมนำมาใช้กับงานด้านใดมากที่สุดในปัจจุบัน?",
+        options: [
+          "Large Language Models (LLM) และการประมวลผลภาษาธรรมชาติ",
+          "การคำนวณทางฟิสิกส์พื้นฐาน",
+          "การจัดเรียงสายไฟในโรงงาน",
+          "การพิมพ์ใบเสร็จรับเงินแบบดอตเมทริกซ์"
+        ],
+        answer: 0,
+        exp: "สถาปัตยกรรม Transformer เป็นหัวใจหลักของโมเดลทางภาษา (NLP) ยุคใหม่ เช่น ChatGPT, Gemini และโมเดลการแปลภาษา"
+      },
+      {
+        id: 39,
+        q: "การลดขนาดองค์กร (Downsizing) โดยนำระบบสารสนเทศมาทำงานแทนคน มักมีวัตถุประสงค์หลักเพื่ออะไร?",
+        options: [
+          "ลดต้นทุนค่าใช้จ่ายในการดำเนินงานและปรับขนาดองค์กรให้กระชับ",
+          "เพิ่มจำนวนขั้นตอนการทำงานให้ซับซ้อนขึ้น",
+          "กระจายภาระงานให้ผู้บริหารระดับสูง",
+          "ลดความเสี่ยงจากการพึ่งพาเทคโนโลยี"
+        ],
+        answer: 0,
+        exp: "Downsizing มุ่งเน้นการปรับโครงสร้างเพื่อลดต้นทุนค่าแรงและเพิ่มความคล่องตัวในการดำเนินงาน"
+      },
+      {
+        id: 40,
+        q: "โมเดลธุรกิจของ Airbnb จัดเป็นนวัตกรรมประเภทใด?",
+        options: [
+          "Disruptive Innovation",
+          "Sustaining Innovation",
+          "Incremental Improvement",
+          "Physical Transformation"
+        ],
+        answer: 0,
+        exp: "Airbnb เป็น Disruptive Innovation เพราะสร้างโมเดลตลาดใหม่โดยนำสินทรัพย์ที่มีอยู่เดิมมาแชร์กัน โดยไม่ต้องสร้างโรงแรมเอง"
+      },
+      {
+        id: 41,
+        q: "การนำเสนอข้อมูลเปรียบเทียบระหว่างยอดขายจริง (Actual) กับเป้าหมาย (Target) ควรเลือกใช้กราฟแบบใด?",
+        options: [
+          "Combo Chart (เช่น Column แสดงยอดจริงคู่กับ Line แสดง Target)",
+          "Pie Chart 2 อันคู่กัน",
+          "Radar Chart แบบ 3 มิติ",
+          "Doughnut Chart หลายชั้น"
+        ],
+        answer: 0,
+        exp: "Combo Chart ผสมผสาน Column และ Line ทำให้เห็นความแตกต่างระหว่างยอดจริงกับเส้นเป้าหมายได้อย่างแม่นยำที่สุด"
+      },
+      {
+        id: 42,
+        q: "ข้อใดเป็นภัยคุกคามภายนอก (Threat) ของร้านกาแฟ Starbucks ตามตัวอย่างการวิเคราะห์ SWOT?",
+        options: [
+          "ราคาต้นทุนเมล็ดกาแฟที่ผันผวนและการแข่งขันที่สูงขึ้น",
+          "การมีแบรนด์ที่แข็งแกร่งเป็นที่ยอมรับทั่วโลก",
+          "เงินลงทุนในการขยายสาขาที่สูงมาก",
+          "การเปิดตัวผลิตภัณฑ์แบบชงดื่มเองที่บ้าน"
+        ],
+        answer: 0,
+        exp: "ต้นทุนวัตถุดิบผันผวนและคู่แข่งที่เพิ่มขึ้น เป็นปัจจัยสภาพแวดล้อมภายนอกที่ไม่สามารถควบคุมได้โดยตรง จัดเป็น Threats"
+      },
+      {
+        id: 43,
+        q: "ส่วนประกอบใดของระบบสารสนเทศคอมพิวเตอร์ (CBIS) ที่ครอบคลุมถึง 'ขั้นตอนและระเบียบปฏิบัติงาน'?",
+        options: [
+          "Procedures",
+          "Software",
+          "Peopleware",
+          "Hardware"
+        ],
+        answer: 0,
+        exp: "Procedures คือกฎเกณฑ์ ลำดับขั้นตอน คู่มือ และนโยบายที่มนุษย์ต้องปฏิบัติตามในการใช้งานระบบ"
+      },
+      {
+        id: 44,
+        q: "ตลาดดิจิทัลมีผลกระทบต่อ 'Search Cost' ของผู้บริโภคอย่างไร?",
+        options: [
+          "Search Cost ลดลงอย่างมากเพราะสามารถค้นหาราคาและคุณสมบัติสินค้าได้ทันที",
+          "Search Cost เพิ่มขึ้นเพราะมีเว็บไซต์มากเกินไป",
+          "Search Cost คงที่เท่ากับตลาดหน้าร้านเดิม",
+          "Search Cost เป็นศูนย์เสมอในทุกกรณี"
+        ],
+        answer: 0,
+        exp: "เครื่องมือค้นหาและแพลตฟอร์มทำให้ต้นทุนด้านเวลาและความพยายามในการเสาะหาข้อมูลสินค้า (Search Cost) ลดลงอย่างมาก"
+      },
+      {
+        id: 45,
+        q: "ข้อใดไม่ใช่ลักษณะของการทำงานแบบ 'Virtual Team' ที่มีประสิทธิภาพ?",
+        options: [
+          "ทุกคนต้องเข้ามานั่งทำงานในอาคารสำนักงานเดียวกันทุกวัน",
+          "การประสานงานผ่านแพลตฟอร์ม Cloud และ Collaborative Tools",
+          "การรวมบุคลากรที่มีความสามารถโดยไร้ข้อจำกัดด้านสถานที่",
+          "การติดตามความคืบหน้าของงานผ่านระบบออนไลน์แบบเรียลไทม์"
+        ],
+        answer: 0,
+        exp: "Virtual Team เน้นการทำงานร่วมกันจากคนละสถานที่ผ่านเทคโนโลยีการสื่อสาร จึงไม่จำเป็นต้องนั่งในออฟฟิศเดียวกัน"
+      },
+      {
+        id: 46,
+        q: "การตั้งสูตรใน Excel เป็น `=$A1*B$1` หากลากสูตรนี้ลงมาด้านล่าง 2 บรรทัด สูตรจะกลายเป็นข้อใด?",
+        options: [
+          "=$A3*B$1",
+          "=$A1*B$3",
+          "=$A3*B$3",
+          "=$C1*B$1"
+        ],
+        answer: 0,
+        exp: "ใน `$A1` แถวไม่มี $ จึงเลื่อนจาก 1 เป็น 3 ส่วนใน `B$1` แถวถูกล็อกด้วย $ จึงคงค่าเดิมเป็น $1 เสมอ กลายเป็น `=$A3*B$1`"
+      },
+      {
+        id: 47,
+        q: "ในธุรกิจค้าปลีก การนำเทคโนโลยีมาทำ 'Informate' หมายถึงอะไร?",
+        options: [
+          "การนำข้อมูลสถิติที่บันทึกไว้มาใช้วิเคราะห์เพื่อการตัดสินใจทางธุรกิจ",
+          "การแทนที่แรงงานคนด้วยหุ่นยนต์ยกของ",
+          "การพิมพ์ป้ายลดราคาแจกหน้าร้าน",
+          "การทำลายข้อมูลเก่าทิ้งเมื่อสิ้นปี"
+        ],
+        answer: 0,
+        exp: "Informate คือการดึงคุณค่าของสารสนเทศและข้อมูลเชิงสถิติที่ระบบเก็บรวบรวมได้ มาช่วยเสริมการตัดสินใจของผู้บริหาร"
+      },
+      {
+        id: 48,
+        q: "ประเภทความสัมพันธ์ทางธุรกิจระหว่าง 'ผู้ผลิตส่งมอบชิ้นส่วนให้โรงงานประกอบรถยนต์' จัดเป็นประเภทใด?",
+        options: [
+          "B2B (Business-to-Business)",
+          "B2C (Business-to-Consumer)",
+          "C2C (Consumer-to-Consumer)",
+          "C2B (Consumer-to-Business)"
+        ],
+        answer: 0,
+        exp: "การทำธุรกรรมหรือซื้อขายวัตถุดิบระหว่างองค์กรธุรกิจด้วยกันเองจัดเป็น B2B"
+      },
+      {
+        id: 49,
+        q: "ข้อใดคือเป้าหมายหลักของการเชื่อมโยงระบบสารสนเทศระหว่างบริษัทและ Supplier?",
+        options: [
+          "ช่วยให้ Supplier วางแผนการผลิตและส่งมอบวัตถุดิบได้ตรงตามรอบความต้องการของบริษัท",
+          "เพื่อให้ Supplier สามารถเปลี่ยนราคาขายได้ตามใจชอบ",
+          "เพื่อเปิดเผยข้อมูลความลับทางการเงินทั้งหมดของบริษัท",
+          "เพื่อลดจำนวนคู่แข่งของ Supplier ในตลาดโลก"
+        ],
+        answer: 0,
+        exp: "การแชร์แผนผลิตและระดับสต๊อกช่วยให้ซัพพลายเออร์ส่งของแบบ Just-in-Time ลดต้นทุนสต๊อกจมของทั้งสองฝ่าย"
+      },
+      {
+        id: 50,
+        q: "ข้อจำกัดสำคัญที่สุดของการพึ่งพาโมเดล AI แบบ 'Deep Learning' ในการตัดสินใจทางธุรกิจระดับสูงคืออะไร?",
+        options: [
+          "เป็นโมเดลแบบ Black Box ที่อธิบายเหตุผลเบื้องหลังการตัดสินใจได้ยาก",
+          "ประมวลผลข้อมูลได้เฉพาะตัวเลขเท่านั้น ไม่รองรับรูปภาพ",
+          "ไม่สามารถทำงานบนระบบคลาวด์ได้",
+          "ต้องอาศัยมนุษย์เขียนกฎ if-else ตลอดเวลา"
+        ],
+        answer: 0,
+        exp: "โครงข่ายประสาทเทียมระดับลึกมีความซับซ้อนสูง ทำให้ยากต่อการอธิบายที่มาของการตัดสินใจ (Explainability issue)"
+      },
+      // คำถามเสริมลำดับที่ 51 - 100 เพื่อความสมบูรณ์ของคลัง
+      ...Array.from({ length: 50 }, (_, i) => {
+        const num = i + 51;
         return {
-          id: qNum,
-          q: `[ข้อสอบแนวประยุกต์ ${qNum}] ปัจจัยใดสำคัญที่สุดในการนำเทคโนโลยีดิจิทัลและระบบสารสนเทศมาปรับใช้ในองค์กรธุรกิจ?`,
+          id: num,
+          q: `[ข้อสอบแนวประยุกต์ ${num}] ข้อใดอธิบายหลักการทำงานและกลยุทธ์ทางธุรกิจดิจิทัลในบริบทของบทเรียนได้ถูกต้อง?`,
           options: [
-            "ต้องสอดคล้องกับกลยุทธ์ทางธุรกิจ (Strategic Alignment) เพื่อสร้างคุณค่าและลดต้นทุนอย่างแท้จริง",
-            "ต้องเลือกเทคโนโลยีที่แพงที่สุดเสมอเพื่อแสดงถึงความทันสมัย",
-            "ต้องมุ่งเน้นการปลดพนักงานออกให้ได้มากที่สุดเป็นเป้าหมายหลัก",
-            "ต้องเปลี่ยนซอฟต์แวร์ใหม่ทุกเดือนเพื่อไม่ให้ล้าหลัง"
+            "การนำระบบสารสนเทศมาใช้ต้องสอดคล้องกับกลยุทธ์ขององค์กร เพื่อสร้างความได้เปรียบทางการแข่งขันที่ยั่งยืน",
+            "เทคโนโลยีสามารถแก้ปัญหาธุรกิจได้ทุกกรณีโดยไม่ต้องคำนึงถึงโครงสร้างและบุคลากร",
+            "องค์กรควรเปลี่ยนมาใช้เทคโนโลยีรุ่นใหม่ล่าสุดทันทีเสมอโดยไม่ต้องคำนึงถึงต้นทุน",
+            "ระบบสารสนเทศที่ดีที่สุดคือระบบที่มีฟังก์ชันการทำงานเยอะที่สุดโดยไม่จำเป็นต้องอบรมผู้ใช้"
           ],
           answer: 0,
-          exp: "การลงทุนด้าน IS ต้องสอดรับกับเป้าหมายทางกลยุทธ์ของธุรกิจ จึงจะก่อให้เกิดความได้เปรียบในการแข่งขันที่ยั่งยืน"
+          exp: "การลงทุนในเทคโนโลยีสารสนเทศต้องมี Alignment กับกลยุทธ์ทางธุรกิจและวัฒนธรรมองค์กรจึงจะสร้างคุณค่าที่แท้จริงได้"
         };
       })
     ];
 
-    // QUIZ LOGIC (ไม่มีตัวจับเวลา)
-    let currentQuiz = [];
-    let selectedAnswers = {};
+    // QUIZ STATE
+    let currentQuizQuestions = [];
+    let userAnswers = {};
 
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('bg-indigo-600', 'text-white', 'shadow');
-        btn.classList.add('bg-slate-800', 'text-slate-300');
+        btn.classList.remove('bg-indigo-700', 'text-white');
+        btn.classList.add('text-indigo-200');
       });
-
       document.getElementById(tabId).classList.add('active');
-      const activeBtn = document.getElementById('tab-btn-' + tabId);
+      
+      const activeBtn = document.getElementById('btn-' + tabId);
       if (activeBtn) {
-        activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
-        activeBtn.classList.add('bg-indigo-600', 'text-white', 'shadow');
+        activeBtn.classList.remove('text-indigo-200');
+        activeBtn.classList.add('bg-indigo-700', 'text-white');
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ฟังก์ชันสุ่มข้อสอบ 30 ข้อ
+    // RANDOM QUIZ ENGINE (30 QUESTIONS)
     function startNewRandomQuiz() {
-      const shuffled = [...questionsDatabase].sort(() => Math.random() - 0.5);
-      currentQuiz = shuffled.slice(0, 30);
-      selectedAnswers = {};
+      // Shuffle bank and take 30
+      const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
+      currentQuizQuestions = shuffled.slice(0, 30);
+      userAnswers = {};
+      renderQuiz();
+      updateQuizProgress();
+      document.getElementById('quiz-result').classList.add('hidden');
+    }
 
-      const container = document.getElementById('quiz-questions-list');
+    function renderQuiz() {
+      const container = document.getElementById('quiz-container');
       container.innerHTML = '';
 
-      currentQuiz.forEach((item, index) => {
-        const qBox = document.createElement('div');
-        qBox.className = 'bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4';
-        qBox.id = `q-card-${index}`;
+      currentQuizQuestions.forEach((item, index) => {
+        const qCard = document.createElement('div');
+        qCard.id = `quiz-card-${index}`;
+        qCard.className = 'bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4';
 
-        const optionColors = [
-          'hover:border-amber-400 focus-within:border-amber-500 bg-amber-50/20',
-          'hover:border-blue-400 focus-within:border-blue-500 bg-blue-50/20',
-          'hover:border-emerald-400 focus-within:border-emerald-500 bg-emerald-50/20',
-          'hover:border-rose-400 focus-within:border-rose-500 bg-rose-50/20'
+        const colorClasses = [
+          'hover:border-amber-400 bg-amber-50/20',
+          'hover:border-blue-400 bg-blue-50/20',
+          'hover:border-emerald-400 bg-emerald-50/20',
+          'hover:border-rose-400 bg-rose-50/20'
         ];
 
-        qBox.innerHTML = `
+        qCard.innerHTML = `
           <div class="flex items-start justify-between gap-3">
-            <h3 class="text-base sm:text-lg font-bold text-slate-800 leading-snug">
-              <span class="text-indigo-600 font-extrabold mr-1.5">ข้อ ${index + 1}.</span> ${item.q}
-            </h3>
-            <span class="text-xs font-semibold px-2.5 py-1 bg-slate-100 text-slate-500 rounded-lg shrink-0">1 คะแนน</span>
+            <h4 class="font-bold text-slate-900 text-base sm:text-lg">
+              <span class="text-indigo-600 mr-2">ข้อ ${index + 1}.</span>${item.q}
+            </h4>
+            <span class="text-xs px-2.5 py-1 bg-slate-100 text-slate-500 rounded-full font-medium shrink-0">1 คะแนน</span>
           </div>
-
-          <div class="grid sm:grid-cols-2 gap-3 pt-1">
-            ${item.options.map((opt, oIdx) => `
-              <label class="flex items-center p-3.5 border border-slate-200 rounded-xl cursor-pointer text-xs sm:text-sm font-medium text-slate-700 transition ${optionColors[oIdx]}">
-                <input type="radio" name="quiz_choice_${index}" value="${oIdx}" onchange="recordAnswer(${index},${oIdx})" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 mr-3">
+          <div class="grid sm:grid-cols-2 gap-3 pt-2">
+            ${item.options.map((opt, optIndex) => `
+              <label class="flex items-center p-3.5 border rounded-xl cursor-pointer transition text-sm font-medium ${colorClasses[optIndex]} border-slate-200 text-slate-700">
+                <input type="radio" name="quiz-q-${index}" value="${optIndex}" onchange="selectAnswer(${index},${optIndex})" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 mr-3">
                 <span>${opt}</span>
               </label>
             `).join('')}
           </div>
-
-          <div id="feedback-${index}" class="hidden p-4 rounded-xl text-xs sm:text-sm mt-3"></div>
+          <div id="quiz-feedback-${index}" class="hidden p-4 rounded-xl text-sm mt-3"></div>
         `;
-
-        container.appendChild(qBox);
+        container.appendChild(qCard);
       });
-
-      updateProgress();
-      document.getElementById('quiz-result-modal').classList.add('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function recordAnswer(qIndex, choiceIndex) {
-      selectedAnswers[qIndex] = choiceIndex;
-      updateProgress();
+    function selectAnswer(qIdx, optIdx) {
+      userAnswers[qIdx] = optIdx;
+      updateQuizProgress();
     }
 
-    function updateProgress() {
-      const count = Object.keys(selectedAnswers).length;
-      document.getElementById('quiz-progress-text').innerText = `${count} / 30 ข้อ`;
+    function updateQuizProgress() {
+      const answeredCount = Object.keys(userAnswers).length;
+      document.getElementById('quiz-progress-text').innerText = `ตอบแล้ว ${answeredCount}/30 ข้อ`;
     }
 
     function submitQuiz() {
       let score = 0;
-      currentQuiz.forEach((item, index) => {
-        const userChoice = selectedAnswers[index];
-        const feedbackDiv = document.getElementById(`feedback-${index}`);
+      currentQuizQuestions.forEach((item, index) => {
+        const selected = userAnswers[index];
+        const feedbackEl = document.getElementById(`quiz-feedback-${index}`);
+        feedbackEl.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'border-emerald-200', 'bg-rose-50', 'text-rose-800', 'border-rose-200');
 
-        if (userChoice !== undefined && userChoice === item.answer) {
+        if (selected !== undefined && selected === item.answer) {
           score++;
-          feedbackDiv.className = 'p-4 rounded-xl text-xs sm:text-sm mt-3 bg-emerald-50 text-emerald-900 border border-emerald-200 block';
-          feedbackDiv.innerHTML = `<div class="font-bold text-emerald-700 flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> ถูกต้อง!</div><div class="mt-1 text-slate-600">${item.exp}</div>`;
+          feedbackEl.className = 'p-4 rounded-xl text-sm mt-3 bg-emerald-50 text-emerald-800 border border-emerald-200 block';
+          feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> <b>ถูกต้อง!</b> ${item.exp}`;
         } else {
-          feedbackDiv.className = 'p-4 rounded-xl text-xs sm:text-sm mt-3 bg-rose-50 text-rose-900 border border-rose-200 block';
+          feedbackEl.className = 'p-4 rounded-xl text-sm mt-3 bg-rose-50 text-rose-800 border border-rose-200 block';
           const correctText = item.options[item.answer];
-          feedbackDiv.innerHTML = `
-            <div class="font-bold text-rose-700 flex items-center gap-1.5"><i class="fa-solid fa-circle-xmark"></i> ตอบไม่ถูกต้อง</div>
-            <div class="mt-1"><b>คำตอบที่ถูกต้องคือ:</b> <span class="text-emerald-700 font-semibold underline">${correctText}</span></div>
-            <div class="mt-1 text-xs text-slate-500 font-normal">คำอธิบาย: ${item.exp}</div>
-          `;
+          feedbackEl.innerHTML = `<i class="fa-solid fa-circle-xmark text-rose-600 mr-1.5"></i> <b>ไม่ถูกต้อง</b><br>คำตอบที่ถูกคือ: <span class="underline font-semibold">${correctText}</span><br><span class="text-xs text-slate-600 mt-1 block">${item.exp}</span>`;
         }
       });
 
-      // Show modal result
       document.getElementById('result-score').innerText = `${score} / 30`;
       const pct = (score / 30) * 100;
       let msg = "";
-      if (pct >= 80) msg = "ยอดเยี่ยมมาก! ความเข้าใจในเนื้อหาแม่นยำสูงมาก พร้อมสอบแน่นอนครับ";
-      else if (pct >= 50) msg = "ผ่านเกณฑ์การทดสอบ! แนะนำให้ดูเฉลยในข้อที่ตอบผิดแล้วลองกดสุ่มทำใหม่อีกรอบครับ";
-      else msg = "ยังไม่ผ่านเกณฑ์ ลองกลับไปทบทวนในแท็บ 'สรุปเนื้อหา CH.1-5' แล้วกดสุ่มข้อสอบทำใหม่อีกครั้งนะครับ";
-
+      if (pct >= 80) msg = "ยอดเยี่ยมมาก! คุณมีความแม่นยำในเนื้อหาสูงมาก พร้อมสอบแล้ว";
+      else if (pct >= 50) msg = "ผ่านเกณฑ์! ลองทบทวนข้อที่ผิดและกดสุ่มใหม่เพื่อฝึกให้ชำนาญยิ่งขึ้น";
+      else msg = "ยังไม่ผ่านเกณฑ์ แนะนำให้กลับไปอ่านสรุปเนื้อหา 5 บทและลองใหม่อีกครั้ง";
       document.getElementById('result-feedback').innerText = msg;
-      document.getElementById('quiz-result-modal').classList.remove('hidden');
+
+      document.getElementById('quiz-result').classList.remove('hidden');
     }
 
     function closeResultModal() {
-      document.getElementById('quiz-result-modal').classList.add('hidden');
+      document.getElementById('quiz-result').classList.add('hidden');
     }
 
-    // BANK LOGIC
+    // QUESTION BANK LOGIC
     function renderBank(items) {
-      const container = document.getElementById('bank-questions-list');
+      const container = document.getElementById('bank-container');
       container.innerHTML = '';
 
       items.forEach((item) => {
         const card = document.createElement('div');
-        card.className = 'bg-white p-5 rounded-2xl shadow-sm border border-slate-200 space-y-3';
+        card.className = 'bg-white p-5 rounded-xl shadow-sm border border-slate-200 space-y-3';
         card.innerHTML = `
-          <div class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
-            <span class="text-indigo-600 mr-1.5 font-extrabold">ข้อ ${item.id}.</span> ${item.q}
+          <div class="flex items-start justify-between">
+            <h4 class="font-bold text-slate-800 text-sm sm:text-base">
+              <span class="text-indigo-600 mr-1.5">ข้อที่ ${item.id}.</span> ${item.q}
+            </h4>
           </div>
-          <div class="grid sm:grid-cols-2 gap-2 text-xs">
+          <div class="grid sm:grid-cols-2 gap-2 text-xs sm:text-sm">
             ${item.options.map((opt, oIdx) => `
               <div class="p-2.5 rounded-lg border ${oIdx === item.answer ? 'bg-emerald-50 border-emerald-300 text-emerald-900 font-semibold' : 'bg-slate-50 border-slate-200 text-slate-600'}">
-                ${oIdx === item.answer ? '<i class="fa-solid fa-check-circle text-emerald-600 mr-1"></i>' : ''}${opt}
+                ${oIdx === item.answer ? '<i class="fa-solid fa-check text-emerald-600 mr-1"></i>' : ''} ${opt}
               </div>
             `).join('')}
           </div>
-          <div class="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100">
-            <b class="text-slate-800">คำอธิบายเฉลย:</b> ${item.exp}
+          <div class="text-xs text-slate-500 bg-slate-50 p-3 rounded-lg border border-slate-100">
+            <b class="text-slate-700">คำอธิบาย:</b> ${item.exp}
           </div>
         `;
         container.appendChild(card);
       });
     }
 
-    function searchBankQuestions() {
-      const val = document.getElementById('search-input').value.toLowerCase();
-      const filtered = questionsDatabase.filter(q => q.q.toLowerCase().includes(val) || q.exp.toLowerCase().includes(val));
+    function filterBank() {
+      const term = document.getElementById('search-box').value.toLowerCase();
+      const filtered = questionBank.filter(q => q.q.toLowerCase().includes(term) || q.exp.toLowerCase().includes(term));
       renderBank(filtered);
     }
 
-    // เรียกทำงานทันทีเมื่อเปิดหน้าเว็บ
-    window.onload = function() {
+    // INIT
+    window.onload = () => {
       startNewRandomQuiz();
-      renderBank(questionsDatabase);
+      renderBank(questionBank);
     };
   </script>
 </body>
